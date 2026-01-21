@@ -1,13 +1,13 @@
 package org.example.decorator;
 
 public class ChocolateSprinkleDecorator implements IIceCreamDecorator {
-    public String toString() {
-        return "With chocolate sprinkle";
+    private final IIceCreamDecorator iceCreamDecorator;
+
+    public ChocolateSprinkleDecorator(IIceCreamDecorator iceCreamDecorator) {
+        this.iceCreamDecorator = iceCreamDecorator;
     }
 
-
-    @Override
-    public void Decorate() {
-
+    public String toString() {
+        return iceCreamDecorator.toString() + " with chocolate sprinkle";
     }
 }
