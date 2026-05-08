@@ -1,0 +1,1428 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>De afsluiting van semester 4 — Hogeschool Utrecht</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,700;0,900;1,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --hu-blue: #0076BE;
+    --hu-blue-dark: #004C87;
+    --hu-blue-light: #E6F2FA;
+    --hu-red: #E6332A;
+    --hu-red-dark: #B52219;
+    --hu-red-light: #FBE9E7;
+    --ink: #1A1A1A;
+    --ink-soft: #4A4A4A;
+    --ink-faded: #7A7A7A;
+    --paper: #FAFAF7;
+    --paper-warm: #F4EFE6;
+    --line: #E5E2DB;
+    --accent-yellow: #F4C430;
+    --qm-color: #0076BE;
+    --arch-color: #6B3FA0;
+    --ac-color: #1B6E3C;
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Inter', -apple-system, sans-serif;
+    --font-mono: 'JetBrains Mono', monospace;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font-body);
+    color: var(--ink);
+    background: var(--paper);
+    line-height: 1.65;
+    font-size: 17px;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 1000;
+    opacity: 0.03;
+    mix-blend-mode: multiply;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 32px; }
+  section { padding: 80px 0; border-bottom: 1px solid var(--line); }
+  section:last-of-type { border-bottom: none; }
+
+  h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height: 1.15; letter-spacing: -0.02em; }
+  h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); font-weight: 900; }
+  h2 { font-size: clamp(1.8rem, 3.5vw, 2.8rem); margin-bottom: 20px; }
+  h3 { font-size: 1.4rem; margin-bottom: 12px; }
+  p { margin-bottom: 1em; }
+  p:last-child { margin-bottom: 0; }
+  code { font-family: var(--font-mono); font-size: 0.88em; background: var(--hu-blue-light); color: var(--hu-blue-dark); padding: 2px 6px; border-radius: 3px; }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--hu-red);
+    margin-bottom: 16px;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .eyebrow::before { content: ''; width: 24px; height: 2px; background: var(--hu-red); }
+
+  .lead {
+    font-family: var(--font-display);
+    font-size: 1.25rem;
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--ink-soft);
+    font-style: italic;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    position: relative;
+    padding: 100px 0 80px;
+    background:
+      radial-gradient(ellipse at 80% 10%, rgba(230, 51, 42, 0.07) 0%, transparent 50%),
+      radial-gradient(ellipse at 5% 85%, rgba(0, 118, 190, 0.07) 0%, transparent 50%),
+      var(--paper);
+    overflow: hidden;
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-brand {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 56px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+
+  .hu-logo {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.6rem;
+    letter-spacing: -0.04em;
+    line-height: 1;
+  }
+  .hu-logo .h { color: var(--hu-blue); }
+  .hu-logo .u { color: var(--hu-red); margin-left: -2px; }
+  .hero-divider { width: 1px; height: 20px; background: var(--line); }
+
+  .hero h1 { max-width: 16ch; margin-bottom: 24px; }
+  .hero h1 .accent { color: var(--hu-red); font-style: italic; }
+
+  .hero-lead { max-width: 60ch; margin-bottom: 40px; }
+
+  .hero-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 48px;
+  }
+  .hero-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 20px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 4px;
+    font-size: 0.92rem;
+    font-weight: 600;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+  }
+  .hero-item .num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 1.3rem;
+    color: var(--hu-red);
+    line-height: 1;
+  }
+  .hero-item.spike { opacity: 0.55; }
+
+  .hero-shape { position: absolute; pointer-events: none; }
+  .hero-shape.circle {
+    top: 80px; right: -60px;
+    width: 200px; height: 200px;
+    border: 16px solid var(--hu-blue);
+    border-radius: 50%;
+    opacity: 0.07;
+  }
+  .hero-shape.sq {
+    bottom: 50px; right: 18%;
+    width: 50px; height: 50px;
+    background: var(--hu-red);
+    opacity: 0.08;
+    transform: rotate(18deg);
+  }
+
+  /* ===== NAV ===== */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(250, 250, 247, 0.94);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--line);
+    padding: 0;
+  }
+  .nav-inner {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .nav-inner::-webkit-scrollbar { display: none; }
+  .nav-inner a {
+    display: block;
+    padding: 14px 18px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+    color: var(--ink-soft);
+    white-space: nowrap;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s, border-color 0.2s;
+  }
+  .nav-inner a:hover { color: var(--hu-red); border-color: var(--hu-red); }
+
+  /* ===== PRINCIPE BLOK ===== */
+  .principe {
+    background: var(--hu-blue-dark);
+    color: white;
+    padding: 44px 52px;
+    border-radius: 6px;
+    margin: 40px 0;
+    position: relative;
+    overflow: hidden;
+  }
+  .principe::before {
+    content: '"';
+    position: absolute;
+    top: -20px; left: 32px;
+    font-family: var(--font-display);
+    font-size: 10rem;
+    font-weight: 900;
+    color: rgba(255,255,255,0.06);
+    line-height: 1;
+  }
+  .principe .label {
+    display: block;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    opacity: 0.6;
+    margin-bottom: 16px;
+  }
+  .principe .uitspraak {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.35;
+    font-style: italic;
+  }
+
+  /* ===== TWEE ITEMS KAART ===== */
+  .items-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-top: 40px;
+  }
+  .item-kaart {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+  .item-kaart:hover { transform: translateY(-3px); box-shadow: 0 10px 28px rgba(0,0,0,0.07); }
+  .item-kaart.spike { opacity: 0.6; }
+  .item-kaart-kop {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--line);
+  }
+  .item-kaart-kop .tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+  .item-kaart.eind .tag { background: var(--hu-blue); color: white; }
+  .item-kaart.overdracht .tag { background: var(--hu-red); color: white; }
+  .item-kaart.spike .tag { background: var(--ink-faded); color: white; }
+  .item-kaart-kop h3 { font-size: 1.2rem; margin: 0; }
+  .item-kaart dl { padding: 20px 24px; }
+  .item-kaart dt {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--ink-faded);
+    margin-top: 14px;
+  }
+  .item-kaart dt:first-child { margin-top: 0; }
+  .item-kaart dd { font-size: 0.95rem; color: var(--ink-soft); margin-top: 2px; }
+
+  /* ===== PORTFOLIO PARAGRAAF ===== */
+  .feedback-citaten {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin: 20px 0;
+  }
+  .citaat-tag {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 0.95rem;
+    padding: 8px 16px;
+    background: var(--paper-warm);
+    border-left: 3px solid var(--hu-red);
+    border-radius: 0 4px 4px 0;
+    color: var(--ink);
+  }
+
+  .maatregel {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin: 16px 0;
+    align-items: flex-start;
+  }
+  .maatregel .num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2.5rem;
+    color: var(--hu-blue-light);
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .maatregel strong { display: block; margin-bottom: 4px; }
+
+  /* ===== STROMINGEN ===== */
+  .stroming-tabs {
+    display: flex;
+    gap: 0;
+    border: 1px solid var(--line);
+    border-radius: 6px 6px 0 0;
+    overflow: hidden;
+    margin-top: 40px;
+  }
+  .stroming-tab {
+    flex: 1;
+    padding: 16px 20px;
+    background: white;
+    border: none;
+    border-right: 1px solid var(--line);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--ink-soft);
+    transition: background 0.2s, color 0.2s;
+    text-align: left;
+  }
+  .stroming-tab:last-child { border-right: none; }
+  .stroming-tab.active { background: var(--hu-blue-dark); color: white; }
+  .stroming-tab .tab-eyebrow { font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.7; display: block; margin-bottom: 2px; }
+
+  .stroming-panel {
+    display: none;
+    border: 1px solid var(--line);
+    border-top: none;
+    border-radius: 0 0 6px 6px;
+    background: white;
+    padding: 32px 36px;
+  }
+  .stroming-panel.active { display: block; }
+  .stroming-panel .kernboodschap {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.1rem;
+    line-height: 1.5;
+    padding: 20px 24px;
+    background: var(--paper-warm);
+    border-radius: 4px;
+    margin-bottom: 24px;
+  }
+  .stroming-panel .niet-wel {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .niet-box, .wel-box {
+    padding: 16px 20px;
+    border-radius: 4px;
+    font-size: 0.92rem;
+  }
+  .niet-box { background: var(--hu-red-light); border-left: 3px solid var(--hu-red); }
+  .niet-box::before { content: '✕ Niet:'; display: block; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hu-red); margin-bottom: 6px; }
+  .wel-box { background: var(--hu-blue-light); border-left: 3px solid var(--hu-blue); }
+  .wel-box::before { content: '✓ Wel:'; display: block; font-weight: 700; font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--hu-blue); margin-bottom: 6px; }
+
+  .indicator-sectie h5 {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hu-blue-dark);
+    margin: 20px 0 10px;
+  }
+  .indicator-lijst { list-style: none; padding: 0; }
+  .indicator-lijst li {
+    display: flex;
+    gap: 12px;
+    padding: 10px 0;
+    border-top: 1px solid var(--line);
+    font-size: 0.92rem;
+    color: var(--ink-soft);
+    align-items: baseline;
+  }
+  .indicator-code {
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    font-weight: 500;
+    background: var(--hu-blue-light);
+    color: var(--hu-blue-dark);
+    padding: 2px 7px;
+    border-radius: 3px;
+  }
+  .indicator-lijst em { color: var(--ink-faded); font-size: 0.88rem; }
+
+  /* ===== GROTE TIJDLIJN ===== */
+  .grote-tijdlijn-wrap { overflow-x: auto; margin-top: 36px; }
+  .grote-tijdlijn {
+    width: 100%;
+    min-width: 700px;
+    border-collapse: collapse;
+    font-size: 0.88rem;
+  }
+  .grote-tijdlijn th {
+    padding: 10px 14px;
+    background: var(--ink);
+    color: white;
+    font-weight: 600;
+    text-align: left;
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+  }
+  .grote-tijdlijn td { padding: 10px 14px; border: 1px solid var(--line); vertical-align: top; }
+  .grote-tijdlijn .label-col { font-weight: 700; background: white; white-space: nowrap; }
+  .grote-tijdlijn .actief { border-radius: 3px; font-size: 0.82rem; line-height: 1.4; }
+  .grote-tijdlijn .actief.eind { background: var(--hu-blue-light); color: var(--hu-blue-dark); font-weight: 600; }
+  .grote-tijdlijn .actief.overdracht { background: var(--hu-red-light); color: var(--hu-red-dark); font-weight: 600; }
+  .grote-tijdlijn .actief.peil { background: #FFF9E6; color: #7A5C00; font-weight: 600; }
+  .grote-tijdlijn .actief.spike { background: #E8F5E9; color: #1B5E20; font-weight: 600; }
+  .grote-tijdlijn .track-label { font-weight: 700; }
+
+  /* ===== VERTIKALE TIJDLIJN ===== */
+  .vert-tijdlijn { margin-top: 36px; position: relative; padding-left: 32px; }
+  .vert-tijdlijn::before {
+    content: '';
+    position: absolute;
+    left: 7px; top: 8px; bottom: 8px;
+    width: 2px;
+    background: repeating-linear-gradient(to bottom, var(--hu-blue) 0 6px, transparent 6px 12px);
+  }
+  .vt-stap { position: relative; margin-bottom: 36px; }
+  .vt-stap:last-child { margin-bottom: 0; }
+  .vt-stap::before {
+    content: '';
+    position: absolute;
+    left: -28px; top: 5px;
+    width: 16px; height: 16px;
+    border: 2px solid var(--hu-blue);
+    border-radius: 50%;
+    background: white;
+  }
+  .vt-stap:last-child::before { background: var(--hu-red); border-color: var(--hu-red); box-shadow: 0 0 0 4px rgba(230,51,42,0.12); }
+  .vt-datum {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--hu-blue);
+    margin-bottom: 4px;
+  }
+  .vt-stap:last-child .vt-datum { color: var(--hu-red); }
+  .vt-titel { font-family: var(--font-display); font-weight: 700; font-size: 1.1rem; margin-bottom: 6px; }
+  .vt-beschrijving { font-size: 0.92rem; color: var(--ink-soft); margin: 0; }
+
+  /* ===== TWEE TIJDLIJNEN NAAST ELKAAR ===== */
+  .tijdlijn-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 8px;
+  }
+  .tijdlijn-duo .tl-header {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    border-radius: 100px;
+    display: inline-block;
+    margin-bottom: 24px;
+  }
+  .tijdlijn-duo .tl-eind .tl-header { background: var(--hu-blue); color: white; }
+  .tijdlijn-duo .tl-overdracht .tl-header { background: var(--hu-red); color: white; }
+
+  /* ===== ZWAARTEPUNT BLOKKEN ===== */
+  .zwaartepunt-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .zwaartepunt {
+    padding: 32px 36px;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid var(--line);
+  }
+  .zwaartepunt .zw-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .zwaartepunt.eind .zw-label { color: var(--hu-blue); }
+  .zwaartepunt.overdracht .zw-label { color: var(--hu-red); }
+  .zwaartepunt h3 { font-size: 1.35rem; margin-bottom: 12px; }
+  .zwaartepunt .stelling {
+    font-weight: 700;
+    margin-bottom: 16px;
+    color: var(--ink);
+  }
+  .zwaartepunt ul { list-style: none; padding: 0; margin-top: 16px; }
+  .zwaartepunt ul li {
+    padding: 9px 0 9px 20px;
+    position: relative;
+    border-top: 1px solid var(--line);
+    font-size: 0.9rem;
+    color: var(--ink-soft);
+  }
+  .zwaartepunt ul li::before {
+    content: '';
+    position: absolute;
+    left: 0; top: 18px;
+    width: 10px; height: 2px;
+  }
+  .zwaartepunt.eind ul li::before { background: var(--hu-blue); }
+  .zwaartepunt.overdracht ul li::before { background: var(--hu-red); }
+
+  /* ===== PRAKTISCH TABEL ===== */
+  .praktisch-duo {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-top: 40px;
+  }
+  .praktisch-kaart {
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .praktisch-kaart .pk-kop {
+    padding: 14px 20px;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: white;
+  }
+  .praktisch-kaart.eind .pk-kop { background: var(--hu-blue); }
+  .praktisch-kaart.overdracht .pk-kop { background: var(--hu-red); }
+  .praktisch-kaart table { width: 100%; border-collapse: collapse; }
+  .praktisch-kaart td { padding: 9px 16px; border-top: 1px solid var(--line); font-size: 0.88rem; vertical-align: top; }
+  .praktisch-kaart td:first-child { font-weight: 600; color: var(--ink-soft); width: 44%; white-space: nowrap; }
+
+  /* ===== PORTFLOW ===== */
+  .portflow-activiteiten {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin: 28px 0;
+  }
+  .portflow-activiteit {
+    padding: 20px 24px;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid var(--line);
+  }
+  .portflow-activiteit .naam {
+    font-family: var(--font-mono);
+    font-size: 0.92rem;
+    font-weight: 500;
+    background: var(--hu-blue-light);
+    color: var(--hu-blue-dark);
+    padding: 4px 10px;
+    border-radius: 3px;
+    display: inline-block;
+    margin-bottom: 8px;
+  }
+  .portflow-activiteit .lu {
+    font-size: 0.8rem;
+    color: var(--ink-soft);
+  }
+  .portflow-activiteit .lu strong { color: var(--ink); }
+
+  .iteratie-patroon {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin: 28px 0;
+  }
+  .patroon-blok {
+    padding: 24px;
+    border-radius: 6px;
+    background: white;
+    border: 1px solid var(--line);
+  }
+  .patroon-blok .pb-kop {
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid;
+  }
+  .patroon-blok.voor .pb-kop { color: var(--hu-blue); border-color: var(--hu-blue); }
+  .patroon-blok.na .pb-kop { color: var(--hu-red); border-color: var(--hu-red); }
+  .patroon-blok ol { padding-left: 20px; }
+  .patroon-blok ol li { font-size: 0.9rem; color: var(--ink-soft); margin-bottom: 8px; line-height: 1.45; }
+
+  .iteratie-blokken {
+    margin-top: 28px;
+  }
+  .iteratie-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-bottom: 12px; }
+
+  .iter-blok {
+    padding: 18px 22px;
+    border-radius: 4px;
+    background: white;
+    border: 1px solid var(--line);
+    font-size: 0.88rem;
+    line-height: 1.5;
+    color: var(--ink-soft);
+  }
+  .iter-blok .iter-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: block;
+  }
+  .iter-blok.eind .iter-label { color: var(--hu-blue); }
+  .iter-blok.overdracht .iter-label { color: var(--hu-red); }
+  .iter-blok ol, .iter-blok ul { padding-left: 16px; margin-top: 6px; }
+  .iter-blok li { margin-bottom: 5px; }
+
+  /* ===== WAT HEB JE AL ===== */
+  .heb-je-al { width: 100%; border-collapse: collapse; margin-top: 32px; font-size: 0.92rem; }
+  .heb-je-al th { padding: 12px 16px; background: var(--ink); color: white; text-align: left; font-family: var(--font-body); font-size: 0.8rem; font-weight: 600; }
+  .heb-je-al td { padding: 14px 16px; border: 1px solid var(--line); vertical-align: top; color: var(--ink-soft); }
+  .heb-je-al td:first-child { font-weight: 700; color: var(--ink); white-space: nowrap; }
+
+  /* ===== CRITERIA ===== */
+  .criteria-duo { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; margin-top: 32px; }
+  .criteria-kaart { background: white; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; }
+  .criteria-kaart .ck-kop { padding: 14px 20px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: white; }
+  .criteria-kaart.eind .ck-kop { background: var(--hu-blue); }
+  .criteria-kaart.overdracht .ck-kop { background: var(--hu-red); }
+  .criteria-kaart table { width: 100%; border-collapse: collapse; }
+  .criteria-kaart td { padding: 11px 16px; border-top: 1px solid var(--line); font-size: 0.87rem; vertical-align: top; color: var(--ink-soft); }
+  .criteria-kaart td:first-child { font-weight: 600; color: var(--ink); width: 36%; }
+
+  /* ===== BEWIJSFEEDBACK ===== */
+  .bf-uitleg {
+    background: var(--paper-warm);
+    border-radius: 6px;
+    padding: 28px 32px;
+    margin: 24px 0 36px;
+  }
+  .bf-uitleg h4 { font-size: 1rem; margin-bottom: 12px; }
+  .bf-uitleg dt { font-weight: 700; margin-top: 12px; }
+  .bf-uitleg dd { color: var(--ink-soft); font-size: 0.92rem; margin-left: 0; margin-top: 2px; }
+
+  .bf-voorbeeld { margin-bottom: 24px; border: 1px solid var(--line); border-radius: 6px; overflow: hidden; background: white; }
+  .bf-kop {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 20px;
+    font-size: 0.78rem;
+    font-weight: 700;
+  }
+  .bf-kop.zwak { background: #FFF3E0; color: #E65100; }
+  .bf-kop.middel { background: #FFF8E1; color: #F57F17; }
+  .bf-kop.sterk { background: #E8F5E9; color: #2E7D32; }
+  .bf-label-stroming { font-weight: 400; opacity: 0.8; }
+  .bf-citaat {
+    padding: 20px 24px;
+    font-style: italic;
+    border-bottom: 1px solid var(--line);
+    color: var(--ink);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+  .bf-analyse { padding: 16px 24px 20px; }
+  .bf-analyse h5 {
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--hu-blue-dark);
+    margin: 14px 0 6px;
+  }
+  .bf-analyse h5:first-child { margin-top: 0; }
+  .bf-analyse p { font-size: 0.88rem; color: var(--ink-soft); }
+
+  /* ===== LET OP BLOK ===== */
+  .let-op {
+    background: #FFF9E6;
+    border-left: 4px solid var(--accent-yellow);
+    border-radius: 0 4px 4px 0;
+    padding: 18px 22px;
+    margin: 20px 0;
+    font-size: 0.92rem;
+    color: var(--ink);
+  }
+  .let-op .label {
+    display: block;
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: #7A5C00;
+    margin-bottom: 6px;
+  }
+
+  /* ===== ACCORDION VOOR BEWIJSFEEDBACK ===== */
+  .accordion { margin-top: 24px; }
+  .acc-item { border: 1px solid var(--line); border-radius: 6px; margin-bottom: 10px; overflow: hidden; background: white; transition: border-color 0.2s; }
+  .acc-item:hover { border-color: var(--hu-blue); }
+  .acc-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 24px;
+    cursor: pointer;
+    user-select: none;
+    gap: 16px;
+  }
+  .acc-header-left { display: flex; align-items: center; gap: 14px; }
+  .acc-nummer { font-family: var(--font-display); font-size: 1.6rem; font-weight: 900; line-height: 1; }
+  .acc-item:nth-child(1) .acc-nummer, .acc-item:nth-child(2) .acc-nummer { color: var(--hu-red-light); }
+  .acc-item:nth-child(3) .acc-nummer { color: #FDEAA8; }
+  .acc-item:nth-child(4) .acc-nummer, .acc-item:nth-child(5) .acc-nummer, .acc-item:nth-child(6) .acc-nummer { color: #C8E6C9; }
+  .acc-item.open .acc-nummer { color: var(--hu-red) !important; }
+  .acc-title { font-family: var(--font-display); font-size: 1rem; font-weight: 700; }
+  .acc-sub { font-size: 0.82rem; color: var(--ink-faded); margin-top: 2px; font-family: var(--font-body); }
+  .acc-toggle {
+    width: 36px; height: 36px;
+    border: 1px solid var(--line);
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    background: white;
+    flex-shrink: 0;
+    transition: transform 0.3s, background 0.2s, border-color 0.2s;
+  }
+  .acc-item.open .acc-toggle { transform: rotate(45deg); background: var(--hu-red); border-color: var(--hu-red); }
+  .acc-item.open .acc-toggle svg { stroke: white; }
+  .acc-toggle svg { width: 16px; height: 16px; stroke: var(--ink); stroke-width: 2; fill: none; }
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height 0.4s ease; }
+  .acc-item.open .acc-body { max-height: 2000px; }
+  .acc-body-inner { padding: 0 24px 24px; border-top: 1px solid var(--line); }
+
+  /* ===== EERSTVOLGENDE STAP ===== */
+  .stap-lijst { counter-reset: stap; margin-top: 32px; }
+  .stap {
+    display: flex;
+    gap: 24px;
+    padding: 24px 28px;
+    background: white;
+    border: 1px solid var(--line);
+    border-radius: 6px;
+    margin-bottom: 12px;
+    align-items: flex-start;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .stap:hover { border-color: var(--hu-blue); transform: translateX(4px); }
+  .stap .stap-num {
+    font-family: var(--font-display);
+    font-weight: 900;
+    font-size: 2rem;
+    color: var(--hu-blue-light);
+    line-height: 1;
+    flex-shrink: 0;
+    min-width: 32px;
+    transition: color 0.2s;
+  }
+  .stap:hover .stap-num { color: var(--hu-blue); }
+  .stap p { margin: 0; font-size: 0.95rem; color: var(--ink-soft); }
+  .stap strong { color: var(--ink); }
+
+  /* ===== FOOTER ===== */
+  footer {
+    padding: 40px 0;
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--ink-faded);
+    border-top: 1px solid var(--line);
+  }
+
+  /* ===== RESPONSIVE ===== */
+  @media (max-width: 768px) {
+    .wrap { padding: 0 20px; }
+    .items-grid, .zwaartepunt-duo, .praktisch-duo, .iteratie-duo, .criteria-duo, .tijdlijn-duo, .portflow-activiteiten, .iteratie-patroon { grid-template-columns: 1fr; }
+    .stroming-tabs { flex-direction: column; }
+    h1 { font-size: 2.2rem; }
+    section { padding: 56px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="hero-brand">
+      <div class="hu-logo"><span class="h">H</span><span class="u">U</span></div>
+      <div class="hero-divider"></div>
+      <span>Software Development · Semester 4</span>
+    </div>
+
+    <h1>De <span class="accent">afsluiting</span><br>van semester 4</h1>
+    <p class="hero-lead lead">In de afsluitende fase laat je zien dat je dezelfde technische realiteit kunt vertalen naar twee verschillende publieken. Strategisch voor de opdrachtgever. Technisch precies voor een ander development team.</p>
+
+    <div class="hero-items">
+      <div class="hero-item">
+        <span class="num">1</span>
+        <span>Eindpresentatie voor de opdrachtgever</span>
+      </div>
+      <div class="hero-item">
+        <span class="num">2</span>
+        <span>Overdracht aan een ander development team</span>
+      </div>
+      <div class="hero-item spike">
+        <span class="num">3</span>
+        <span>Spike-posterpresentatie <em style="font-style:normal;font-size:0.82em;opacity:0.7;">— volgt later</em></span>
+      </div>
+    </div>
+  </div>
+  <div class="hero-shape circle"></div>
+  <div class="hero-shape sq"></div>
+</header>
+
+<!-- STICKY NAV -->
+<nav class="sticky-nav">
+  <div class="wrap">
+    <div class="nav-inner">
+      <a href="#eerlijkheid">Eerlijkheid</a>
+      <a href="#stromingen">Drie stromingen</a>
+      <a href="#tijdlijn">Tijdlijn</a>
+      <a href="#eindpresentatie">Eindpresentatie</a>
+      <a href="#overdracht">Overdracht</a>
+      <a href="#wat-heb-je-al">Wat heb je al?</a>
+      <a href="#criteria">Kwaliteitscriteria</a>
+      <a href="#bewijsfeedback">Bewijsfeedback</a>
+    </div>
+  </div>
+</nav>
+
+<!-- EERLIJKHEID -->
+<section id="eerlijkheid">
+  <div class="wrap">
+    <span class="eyebrow">Het belangrijkste principe</span>
+    <h2>Eerlijkheid als uitgangspunt.</h2>
+
+    <div class="principe">
+      <span class="label">Voor alles wat je maakt</span>
+      <p class="uitspraak">Wij vragen je niet om een perfect product te presenteren. Wij vragen je om een eerlijk product te presenteren — inclusief de plekken waar het nog niet goed is.</p>
+    </div>
+
+    <p>Het einddoel van semester 4 is geen product zonder technical debt, want dat product bestaat niet, zeker niet in een semester van vijf maanden. Het einddoel is een product waarvan jullie de technical debt en de risico's in kaart hebben gebracht, zodat een opdrachtgever weet waar hij aan toe is en een overnemend team weet waar het moet beginnen.</p>
+    <p>Het beste bewijs dat jullie je vak verstaan, is dat jullie precies kunnen aanwijzen waar het product nog niet goed is en kunnen uitleggen waarom dat daar zit, wat de consequentie is en wat er nodig is om het op te lossen.</p>
+    <p>Dit principe loopt door de eindpresentatie en de overdracht heen, maar vraagt per opdracht een andere vertaling. Bij de eindpresentatie vertaal je technische realiteit naar strategische consequenties voor de opdrachtgever; bij de overdracht vertaal je dezelfde realiteit naar concrete codereferenties, debt-inventarissen en hotspots waar een nieuwe developer op moet letten.</p>
+  </div>
+</section>
+
+
+
+<!-- DRIE STROMINGEN -->
+<section id="stromingen">
+  <div class="wrap">
+    <span class="eyebrow">De inhoudelijke ruggengraat</span>
+    <h2>De drie stromingen.</h2>
+    <p class="lead" style="max-width: 70ch;">Quality Management, Architecture en Advanced Coding zijn de drie assen waarlangs professionele IT-teams beoordelen of een applicatie live kan gaan — en dus ook de assen waarlangs jullie jullie verhaal opbouwen.</p>
+    <p style="margin-top: 20px;">Voorkom een oppervlakkige afvinklijst. Liever één goed uitgewerkt diepte-voorbeeld per stroming dan tien losse opmerkingen waar niemand iets aan heeft.</p>
+
+    <div class="stroming-tabs">
+      <button class="stroming-tab active" onclick="toonStroming('qm', this)">
+        <span class="tab-eyebrow">Stroming 1</span>
+        Quality Management
+      </button>
+      <button class="stroming-tab" onclick="toonStroming('arch', this)">
+        <span class="tab-eyebrow">Stroming 2</span>
+        Architecture
+      </button>
+      <button class="stroming-tab" onclick="toonStroming('ac', this)">
+        <span class="tab-eyebrow">Stroming 3</span>
+        Advanced Coding
+      </button>
+      <button class="stroming-tab" onclick="toonStroming('lu14', this)">
+        <span class="tab-eyebrow">Overkoepelend</span>
+        LU 1 t/m 4
+      </button>
+    </div>
+
+    <!-- QM -->
+    <div class="stroming-panel active" id="panel-qm">
+      <div class="niet-wel">
+        <div class="niet-box" style="grid-column: 1;">In de eindpresentatie: "we hebben 87% line coverage."</div>
+        <div class="wel-box" style="grid-column: 2;">In de eindpresentatie: "onze coverage op de betaalmodule is 45% — daar lopen we aanzienlijk risico, en daarom pakken we dat de komende sprint nog aan."</div>
+      </div>
+      <div class="niet-wel">
+        <div class="niet-box">In de overdracht: geen verwijzing naar waar tests staan of welke fixtures er zijn.</div>
+        <div class="wel-box">In de overdracht: locatie van tests, thresholds in de pipeline, fragiele plekken met issuenummer.</div>
+      </div>
+      <div class="indicator-sectie">
+        <h5>Indicatoren eindpresentatie</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">6.1</span> <span>Functionele kwaliteit geborgd. <em>Je legt uit welke acceptatiecriteria de tests dekken en welke risico's blijven.</em></span></li>
+          <li><span class="indicator-code">6.2</span> <span>ISO 25010 vertaald naar wat we testen. <em>Je vertelt welke kwaliteitsattributen jullie hebben getest en hoe.</em></span></li>
+          <li><span class="indicator-code">7.2</span> <span>Kwaliteitsnormen zijn concreet. <em>Welke thresholds staan in de pipeline en wat gebeurt er als ze worden onderschreden?</em></span></li>
+          <li><span class="indicator-code">7.3</span> <span>CI/CD teammatig ingericht. <em>Het hele team werkt met de pipeline, niet één devops-specialist.</em></span></li>
+          <li><span class="indicator-code">8.4</span> <span>ISO 25010-eisen meetbaar. <em>Per kwaliteitseigenschap concreet wat het in deze applicatie betekent.</em></span></li>
+        </ul>
+        <h5>Indicatoren overdracht</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">6.1</span> <span>Functionele kwaliteit geborgd. <em>Welke acceptatiecriteria zijn gedekt, met locatie in de codebase.</em></span></li>
+          <li><span class="indicator-code">7.1</span> <span>Conform ontwerp bewaakt. <em>Welke conventies, code-reviews en architectuurregels staan in de repository?</em></span></li>
+          <li><span class="indicator-code">7.4</span> <span>Continu integreren gebeurt echt. <em>Git-history en PR-ritme laten zien welk ritme jullie hebben gehanteerd.</em></span></li>
+          <li><span class="indicator-code">8.4</span> <span>ISO 25010-eisen meetbaar. <em>Niet als verhaal, maar als concrete check in de pipeline.</em></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Architecture -->
+    <div class="stroming-panel" id="panel-arch">
+      <div class="niet-wel">
+        <div class="niet-box">In de eindpresentatie: een complete pattern-catalogus oppervlakkig doorlopen.</div>
+        <div class="wel-box">In de eindpresentatie: één bewuste keuze grondig beargumenteren — welk patroon, waarom, wat was het alternatief, wat kost een nieuwe feature?</div>
+      </div>
+      <div class="niet-wel">
+        <div class="niet-box">In de overdracht: "we gebruiken het Strategy-pattern" zonder codeverwijzing.</div>
+        <div class="wel-box">In de overdracht: compleet 4+N viewmodel met codeverwijzingen, plus expliciete debt-inventaris voor architectural erosion.</div>
+      </div>
+      <div class="indicator-sectie">
+        <h5>Indicatoren eindpresentatie</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">5.4</span> <span>Stakeholderbehoeften expliciet. <em>Welke kwaliteitseisen vanuit zíjn belangen waren leidend in jullie keuzes?</em></span></li>
+          <li><span class="indicator-code">5.6</span> <span>Impact van wijzigingen beschreven. <em>Wat kost een toekomstige feature en welke plekken zijn makkelijk of duur uit te breiden?</em></span></li>
+          <li><span class="indicator-code">5.9</span> <span>Design patterns bewust gekozen. <em>Per pattern: welk probleem, welk alternatief, vertaald naar wat de opdrachtgever merkt.</em></span></li>
+          <li><span class="indicator-code">8.6</span> <span>Flexibility aangetoond. <em>Een concrete uitbreiding die zonder grote rewrite mogelijk is.</em></span></li>
+        </ul>
+        <h5>Indicatoren overdracht</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">5.2</span> <span>4+N viewmodel. <em>Per view (logical, development, process, physical) plus scenario.</em></span></li>
+          <li><span class="indicator-code">5.7</span> <span>Code past bij de architectuur. <em>Package-structuur en laaggrenzen worden bewaakt.</em></span></li>
+          <li><span class="indicator-code">5.8</span> <span>Architectural erosion herkend. <em>Plekken waar de code afwijkt van de beoogde architectuur, expliciet benoemd.</em></span></li>
+          <li><span class="indicator-code">5.9</span> <span>Design patterns bewust gekozen. <em>Per pattern in de documentatie: waar in de code, welk probleem, welk alternatief.</em></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Advanced Coding -->
+    <div class="stroming-panel" id="panel-ac">
+      <div class="niet-wel">
+        <div class="niet-box">In de eindpresentatie: een SOLID-definitie voorlezen of technisch jargon uitleggen aan de opdrachtgever.</div>
+        <div class="wel-box">In de eindpresentatie: "slechte code is duur" — vertaal code-kwaliteit naar cloudkosten, gebruikerservaring en onderhoudsrisico.</div>
+      </div>
+      <div class="niet-wel">
+        <div class="niet-box">In de overdracht: "we hebben SOLID toegepast" zonder locatie of voorbeeld.</div>
+        <div class="wel-box">In de overdracht: technical-debt-inventaris met locatie, aard, impact en aanpak per item — met bestandsreferenties.</div>
+      </div>
+      <div class="indicator-sectie">
+        <h5>Indicatoren eindpresentatie</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">6.4</span> <span>SOLID met voorbeelden. <em>Een refactor die door SOLID is gedreven, vertaald naar wat het de opdrachtgever oplevert.</em></span></li>
+          <li><span class="indicator-code">6.8</span> <span>Onderhoudbaarheid verbeterd. <em>Een meetbare verbetering: vóór stond het zus, na de refactor staat het zo.</em></span></li>
+          <li><span class="indicator-code">8.5</span> <span>Performance efficiency onderbouwd. <em>Een concrete meting (response time, profiler) en wat jullie eraan hebben veranderd.</em></span></li>
+        </ul>
+        <h5>Indicatoren overdracht</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">6.4</span> <span>SOLID met voorbeelden. <em>Concrete lokalisatie in de codebase, niet alleen de term.</em></span></li>
+          <li><span class="indicator-code">8.3</span> <span>Dependency Injection consequent. <em>Afhankelijkheden via interfaces, test doubles mogelijk, componenten makkelijk vervangbaar.</em></span></li>
+          <li><span class="indicator-code">8.7</span> <span>Onderhoudbaarheid verbeterd. <em>Clean code, tests en documentatie maken overdraagbaarheid aantoonbaar.</em></span></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- LU 1-4 -->
+    <div class="stroming-panel" id="panel-lu14">
+      <p>Naast de drie technische stromingen tonen jullie in beide eindproducten ook de overkoepelende leeruitkomsten aan. De volgende indicatoren raken specifiek aan wat je doet bij deze opdrachten.</p>
+      <div class="indicator-sectie">
+        <h5>LU 2 — Organiserend vermogen</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">2.4</span> <span>Wijzigingen transparant verantwoord. <em>Eerlijk benoemen wat er ten opzichte van de planning is veranderd: features niet afgerond, requirements aangepast, debt geaccepteerd.</em></span></li>
+          <li><span class="indicator-code">2.5</span> <span>Kwaliteitsbewaking zichtbaar. <em>Hoe het team gedurende het semester heeft bijgestuurd op basis van wat haalbaar bleek.</em></span></li>
+        </ul>
+        <h5>LU 3 — Interactief vermogen</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">3.1</span> <span>Eigen rol proactief oppakken. <em>Elk teamlid neemt een herkenbaar onderdeel voor zijn rekening.</em></span></li>
+          <li><span class="indicator-code">3.4</span> <span>Communicatie afgestemd op doelgroep. <em>Strategische taal voor de opdrachtgever, technische precisie voor het ontvangende team.</em></span></li>
+          <li><span class="indicator-code">3.5</span> <span>Bewustzijn van verschillen in belangen. <em>Expliciete keuze voor de belangen van het publiek, niet wat jullie toevallig technisch interessant vinden.</em></span></li>
+        </ul>
+        <h5>LU 4 — Lerend vermogen</h5>
+        <ul class="indicator-lijst">
+          <li><span class="indicator-code">4.1</span> <span>Persoonlijke kansen gesignaleerd. <em>Gap-analyse van 28 april gebruikt om gericht een onderdeel te kiezen.</em></span></li>
+          <li><span class="indicator-code">4.2</span> <span>Leerdoelen navolgbaar. <em>In bewijsfeedback per iteratie expliciet welk onderdeel en welke indicator.</em></span></li>
+          <li><span class="indicator-code">4.3</span> <span>Systematische reflectie. <em>Per iteratie reflecteer je op wat de feedback betekent voor wat jij gaat veranderen.</em></span></li>
+          <li><span class="indicator-code">4.4</span> <span>Aanpassingen onderbouwd door feedback. <em>Iteratieve groei zichtbaar door wat je per iteratie aanpast.</em></span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIJDLIJN -->
+<section id="tijdlijn" style="background: var(--paper-warm);">
+  <div class="wrap">
+    <span class="eyebrow">Vier sporen tegelijk</span>
+    <h2>De tijdlijn.</h2>
+    <p>Tussen 18 mei en de week van 15 juni lopen vier sporen tegelijk. Het overzicht hieronder laat zien hoe ze in elkaar grijpen.</p>
+
+    <div class="grote-tijdlijn-wrap">
+      <table class="grote-tijdlijn">
+        <thead>
+          <tr>
+            <th class="label-col">Spoor</th>
+            <th>Wk 18 mei</th>
+            <th>Wk 25 mei</th>
+            <th>Wk 1 juni</th>
+            <th>Wk 8 juni</th>
+            <th>12 juni</th>
+            <th>Wk 15 juni</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="track-label" style="color:var(--hu-blue);">Eindpresentatie</td>
+            <td class="actief eind">Oefenen van jouw deel<br>19 mei</td>
+            <td></td>
+            <td class="actief eind">Carousel<br>1 juni</td>
+            <td class="actief eind">Oefenmoment<br>(8 of 10 juni)</td>
+            <td></td>
+            <td class="actief eind">Echt:<br>15 juni</td>
+          </tr>
+          <tr>
+            <td class="track-label" style="color:var(--hu-red);">Overdracht</td>
+            <td class="actief overdracht">Carousel-<br>station</td>
+            <td></td>
+            <td class="actief overdracht">Carousel-<br>station</td>
+            <td class="actief overdracht">Generale<br>repetitie</td>
+            <td class="actief overdracht">Generale<br>repetitie</td>
+            <td class="actief overdracht">Echte<br>overdracht</td>
+          </tr>
+          <tr>
+            <td class="track-label">Peilmoment</td>
+            <td></td>
+            <td class="actief peil">26 mei zelfev.</td>
+            <td class="actief peil">Laatste<br>peilmomenten</td>
+            <td></td>
+            <td></td>
+            <td></td>
+          </tr>
+          <tr>
+            <td class="track-label" style="color:#1B6E3C;">Spikes</td>
+            <td></td>
+            <td class="actief spike">25 mei<br>intro</td>
+            <td class="actief spike">2/3 juni onderwerp<br>5 juni bronnen</td>
+            <td></td>
+            <td></td>
+            <td class="actief spike">Poster-<br>presentaties</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="let-op" style="margin-top: 24px;">
+      <span class="label">Let op</span>
+      <strong>De week van 8 t/m 12 juni is intensief.</strong> Oefenmomenten van eindpresentatie en overdracht vallen samen. Plan je werk in die week strak: feedback uit een ochtendsessie moet 's middags al verwerkt zijn, anders raak je in de knel.
+    </div>
+  </div>
+</section>
+
+<!-- EINDPRESENTATIE -->
+<section id="eindpresentatie">
+  <div class="wrap">
+    <span class="eyebrow">Portfolio-item 1</span>
+    <h2>De eindpresentatie.</h2>
+
+    <div class="zwaartepunt-duo" style="grid-template-columns: 1fr;">
+      <div class="zwaartepunt eind">
+        <span class="zw-label">Het zwaartepunt</span>
+        <h3>Vertalen</h3>
+        <p class="stelling">Het zwaartepunt van deze opdracht is vertalen. Je neemt de technische realiteit van het product en zet die om naar wat de opdrachtgever wil weten: risico, kosten, uitbreidbaarheid, onderhoudbaarheid.</p>
+        <ul>
+          <li>Wie alleen technisch correct is en niet vertaalt, levert niet wat hier gevraagd wordt.</li>
+          <li>Wie alleen vlot praat zonder technische onderbouwing, levert ook niet wat hier gevraagd wordt.</li>
+          <li>Wie de twee bij elkaar brengt, en dat per stroming uitwerkt met een concreet voorbeeld, levert wat de opdrachtgever én de docent willen zien.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="praktisch-duo" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="praktisch-kaart eind">
+        <div class="pk-kop">Praktisch</div>
+        <table>
+          <tr><td>Vorm</td><td>Live presentatie + 10 minuten gesprek</td></tr>
+          <tr><td>Duur</td><td>20 + 10 minuten</td></tr>
+          <tr><td>Publiek</td><td>Opdrachtgever (primair) en docenten</td></tr>
+          <tr><td>Bewijs</td><td>Slidedeck of single-page HTML, ondersteund door werkende live demo</td></tr>
+          <tr><td>Type opdracht</td><td>Teamopdracht; individueel bewijs leg je vast in je eigen Portflow-item</td></tr>
+          <tr><td>Iteraties</td><td>18 mei, 1 juni, oefenmoment 8 of 10 juni, 15 juni</td></tr>
+          <tr><td>Aanwezigheid</td><td>Alle teamleden aanwezig op alle iteratiemomenten</td></tr>
+          <tr><td>Tijdsinschatting</td><td>Ongeveer 4 uur per iteratie aan voorbereiding</td></tr>
+          <tr><td>AI-gebruik</td><td>Toegestaan bij voorbereiding van slides. De inhoudelijke onderbouwing en het gesprek zijn van jou.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 40px;">Tijdlijn eindpresentatie</h3>
+    <div class="vert-tijdlijn">
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 18 mei</div>
+        <div class="vt-titel">Oefenen van jouw onderdeel</div>
+        <p class="vt-beschrijving">Betrek de drie stromingen in je review aan de opdrachtgever. Feedback van de opdrachtgever op het verhaal, van docenten op de inhoudelijke diepgang. Bedenk vooraf hoe je feedback van de opdrachtgever ophaalt — via een formulier, Forms-link of gerichte mondelinge vraag.</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 1 juni</div>
+        <div class="vt-titel">Review carousel — Advanced Coding erbij</div>
+        <p class="vt-beschrijving">Wat is er veranderd aan het product én aan het verhaal tov de drie stromingen? Welke feedback van 18 mei hebben jullie verwerkt?</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 8 of woensdag 10 juni</div>
+        <div class="vt-titel">Oefenmoment met docent professionele vermogens</div>
+        <p class="vt-beschrijving">Elk team oefent op één van de twee dagen. Je kijkt ook naar andere groepen — de volgende groep wordt gevraagd wat zij hebben opgepikt van de vorige groep en wat ze daarmee hebben gedaan. Aandacht verschuift naar de presentatie zelf: hoe sta je voor de groep, hoe werk je samen op het podium, hoe ga je om met kritische vragen?</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 15 juni</div>
+        <div class="vt-titel">De eindpresentatie</div>
+        <p class="vt-beschrijving">Twintig minuten presentatie + tien minuten gesprek met de opdrachtgever en docenten.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERDRACHT -->
+<section id="overdracht" style="background: var(--paper-warm);">
+  <div class="wrap">
+    <span class="eyebrow">Portfolio-item 2</span>
+    <h2>De overdracht.</h2>
+    <p>In de praktijk eindigt een softwareproject zelden bij het team dat het heeft gebouwd. De kwaliteit van de overdracht bepaalt of het overnemende team na een week productief is of na drie maanden nog aan het zoeken. Een goede overdracht is een apart vak, met andere spelregels dan een presentatie voor de opdrachtgever: hier telt technische eerlijkheid, precisie en bruikbaarheid.</p>
+
+    <div class="zwaartepunt-duo" style="grid-template-columns: 1fr; margin-top: 28px;">
+      <div class="zwaartepunt overdracht">
+        <span class="zw-label">Het zwaartepunt</span>
+        <h3>Expliciet maken</h3>
+        <p class="stelling">Het zwaartepunt van deze opdracht is expliciet maken. Je zet impliciete kennis over de codebase om in vindbare documentatie. Wat in jullie hoofd zit en niet op papier staat, telt niet.</p>
+        <ul>
+          <li>Wie alleen de werking van de code kent maar de redenering niet documenteert, levert niet wat hier gevraagd wordt.</li>
+          <li>Wie documentatie schrijft die de werkelijkheid in de codebase niet meer dekt, levert ook niet wat hier gevraagd wordt.</li>
+          <li>Wie codereferenties geeft bij elke claim — een bestand, een klasse, een PR, een issue — en eerlijk is over wat fragiel of onaf is, levert wat het ontvangende team kan gebruiken.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="praktisch-duo" style="grid-template-columns: 1fr; margin-top: 24px;">
+      <div class="praktisch-kaart overdracht">
+        <div class="pk-kop">Praktisch</div>
+        <table>
+          <tr><td>Vorm</td><td>Werkgesprek met documentatie in de repository</td></tr>
+          <tr><td>Duur</td><td>30 minuten</td></tr>
+          <tr><td>Publiek</td><td>Een ander development team (docenten en mogelijk een partner-developer)</td></tr>
+          <tr><td>Bewijs</td><td>Documentatie in de repository (<code>docs/handover.md</code>, <code>technical-debt.md</code>, README) — geen losse Word- of Google-Docs</td></tr>
+          <tr><td>Type opdracht</td><td>Teamopdracht; individueel bewijs leg je vast in je eigen Portflow-item</td></tr>
+          <tr><td>Iteraties</td><td>18 mei (docentenstation), 1 juni, generale repetitie week van 8 juni, echte overdracht week 15 juni</td></tr>
+          <tr><td>Aanwezigheid</td><td>Alle teamleden aanwezig op alle iteratiemomenten</td></tr>
+          <tr><td>Tijdsinschatting</td><td>Ongeveer 6 uur per iteratie aan voorbereiding</td></tr>
+          <tr><td>AI-gebruik</td><td>Toegestaan bij voorbereiden van documentatie. De inhoudelijke onderbouwing en het gesprek zijn van jou.</td></tr>
+        </table>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 40px;">Tijdlijn overdracht</h3>
+    <div class="vert-tijdlijn">
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 18 mei — docentenstation</div>
+        <div class="vt-titel">Eerste feedback op plannen of eerste oefening</div>
+        <p class="vt-beschrijving">Bij het docentenstation in de carousel oefen je een deel van de overdracht of haal je feedback op over je plannen. Bedenk vooraf wat je wilt ophalen en welke documentatie je al kunt tonen.</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Maandag 1 juni — docentenstation</div>
+        <div class="vt-titel">Verdieping en feedback op documentatie</div>
+        <p class="vt-beschrijving">Tweede keer bij het docentenstation. Wat is er veranderd aan de documentatie in de repository? Welke feedback van 18 mei heb je verwerkt?</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Week van 8 juni</div>
+        <div class="vt-titel">Generale repetitie</div>
+        <p class="vt-beschrijving">Een volledige oefenoverdracht. Het ontvangende team stelt dezelfde vragen die ze ook echt zullen stellen. Feedback uit dit moment moet voor 12 juni verwerkt zijn in de documentatie.</p>
+      </div>
+      <div class="vt-stap">
+        <div class="vt-datum">Week van 15 juni</div>
+        <div class="vt-titel">De echte overdracht</div>
+        <p class="vt-beschrijving">Werkgesprek van 30 minuten. De documentatie in de repository is het product; het gesprek toetst of jullie die documentatie ook kunnen verdedigen.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFLOW -->
+<section id="portflow">
+  <div class="wrap">
+    <span class="eyebrow">Je portfolio</span>
+    <h2>Hoe je dit in Portflow vastlegt.</h2>
+    <p>Maak in Portflow twee activiteiten aan. Doe dit in de kickoff-les. De namen veranderen nooit.</p>
+
+    <div class="portflow-activiteiten">
+      <div class="portflow-activiteit">
+        <span class="naam">eindpresentatie opdrachtgever</span>
+        <p class="lu">Koppel aan: <strong>Interactief vermogen</strong>+ <strong>Organiserend vermogen</strong></p>
+      </div>
+      <div class="portflow-activiteit">
+        <span class="naam">overdracht codebase</span>
+        <p class="lu">Koppel aan: <strong>Interactief vermogen</strong> + <strong>Organiserend vermogen</strong></p>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 36px;">Hoe een iteratie werkt</h3>
+    <div class="iteratie-patroon">
+      <div class="patroon-blok voor">
+        <div class="pb-kop">Vóór het moment</div>
+        <ol>
+          <li>Heb je een bestand (slidedeck, document, feedbackformulier)? Maak een bewijsstuk aan van het type Bestandsupload. Noem het duidelijk, bijv. "Presentatie carousel 18 mei".</li>
+          <li>Schrijf een nieuwe versie van het vrije tekstveld met: @ verwijzing naar je bewijsstuk, link naar je voorbereiding, en wat je wilt ophalen uit dit moment. Denk bijvoorbeeld aan: welke informatie wil je ophalen, waar heb je tijd en moeite in gestoken, waar hebben jullie op gelet?</li>
+          <li>Voor de eindpresentatie: bedenk ook hoe je feedback van de opdrachtgever ophaalt (formulier, Forms, mondelinge vraag). Een Forms-link mag ook als bewijsstuk.</li>
+        </ol>
+      </div>
+      <div class="patroon-blok na">
+        <div class="pb-kop">Na het moment</div>
+        <ol start="4">
+          <li>Schrijf je bewijsfeedback: welke feedback je hebt gekregen (van wie, op welk criterium of indicator), wat dat voor je werk betekent, en wat je de volgende keer aanpast. Drie tot vijf zinnen. Geen gespreksverslag — alleen feedback die je werk verandert.</li>
+          <li>Dien een validatieverzoek in bij de docent.</li>
+          <li>Koppel na de validatie de bewijsfeedback aan de juiste leeruitkomsten.</li>
+        </ol>
+      </div>
+    </div>
+
+    <h3 style="margin-top: 40px;">Iteraties per opdracht</h3>
+
+    <div class="iteratie-blokken">
+      <p style="margin-bottom: 16px; color: var(--ink-soft); font-size: 0.9rem;"><strong style="color: var(--hu-blue);">Blauw</strong> = eindpresentatie opdrachtgever &nbsp;·&nbsp; <strong style="color: var(--hu-red);">Rood</strong> = overdracht codebase</p>
+
+      <!-- Kickoff -->
+      <div class="iteratie-duo">
+        <div class="iter-blok eind">
+          <span class="iter-label">Iteratie 1 — Kickoff (8 mei)</span>
+          Maak de activiteit aan. Eerste versie vrije tekstveld: welk onderdeel je oppakt (verwijzing naar gap-analyse), link naar verdeling-MD in de repo, wat je wilt ophalen op 18 mei.<br>
+          <em>Nog geen bewijsstuk — er is nog geen bestand.</em>
+        </div>
+        <div class="iter-blok overdracht">
+          <span class="iter-label">Iteratie 1 — Kickoff (8 mei)</span>
+          Maak de activiteit aan. Eerste versie vrije tekstveld: welk onderdeel je oppakt (verwijzing naar gap-analyse), link naar verdeling-MD in de repo, wat je wilt ophalen op 18 mei.<br>
+          <em>Nog geen bewijsstuk — er is nog geen bestand.</em>
+        </div>
+      </div>
+
+      <!-- 18 mei -->
+      <div class="iteratie-duo">
+        <div class="iter-blok eind">
+          <span class="iter-label">Iteratie 2 — Carousel 18 mei</span>
+          <strong>Vóór:</strong> bewijsstuk "Presentatie carousel 18 mei", nieuwe versie vrije tekstveld met @ verwijzing, hoe je feedback ophaalt van de opdrachtgever, feedbackvraag.<br>
+          <strong>Na:</strong> bewijsfeedback → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+        <div class="iter-blok overdracht">
+          <span class="iter-label">Iteratie 2 — Carousel 18 mei (docentenstation)</span>
+          <strong>Vóór:</strong> bewijsstuk "Overdracht voorbereiding 18 mei" indien relevant, nieuwe versie vrije tekstveld met link naar repo, feedbackvraag.<br>
+          <strong>Na:</strong> bewijsfeedback → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+      </div>
+
+      <!-- 1 juni -->
+      <div class="iteratie-duo">
+        <div class="iter-blok eind">
+          <span class="iter-label">Iteratie 3 — Carousel 1 juni</span>
+          <strong>Vóór:</strong> bewijsstuk "Presentatie carousel 1 juni", nieuwe versie vrije tekstveld met @ verwijzing, wat je hebt gedaan met feedback van 18 mei, feedbackvraag.<br>
+          <strong>Na:</strong> bewijsfeedback → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+        <div class="iter-blok overdracht">
+          <span class="iter-label">Iteratie 3 — Carousel 1 juni (docentenstation)</span>
+          <strong>Vóór:</strong> bewijsstuk "Overdracht voorbereiding 1 juni" indien relevant, nieuwe versie met link naar bijgewerkte repo, wat je hebt gedaan met feedback van 18 mei.<br>
+          <strong>Na:</strong> bewijsfeedback → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+      </div>
+
+      <!-- Juni oefenmomenten -->
+      <div class="iteratie-duo">
+        <div class="iter-blok eind">
+          <span class="iter-label">Iteratie 4 — Oefenmoment (8 of 10 juni)</span>
+          <strong>Vóór:</strong> bewijsstuk "Presentatie oefenmoment juni", nieuwe versie met @ verwijzing, wat je hebt gedaan met feedback van 1 juni, feedbackvraag.<br>
+          <strong>Na:</strong> bewijsfeedback — beschrijf ook wat je hebt opgepikt van andere groepen → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+        <div class="iter-blok overdracht">
+          <span class="iter-label">Iteratie 4 — Generale repetitie (week van 8 juni)</span>
+          <strong>Vóór:</strong> bewijsstuk "Overdracht generale repetitie" indien relevant, nieuwe versie met link naar bijgewerkte repo, feedbackvraag.<br>
+          <strong>Na:</strong> bewijsfeedback → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+      </div>
+
+      <!-- Eindmoment -->
+      <div class="iteratie-duo">
+        <div class="iter-blok eind">
+          <span class="iter-label">Iteratie 5 — Eindpresentatie (week 15 juni)</span>
+          <strong>Vóór:</strong> definitief bewijsstuk "Eindpresentatie 15 juni", nieuwe versie vrije tekstveld.<br>
+          <strong>Na:</strong> bewijsfeedback — beschrijf hoe je onderdeel is gegroeid van 18 mei tot 15 juni, welke indicatoren je aantoont, welke feedback je het meest heeft geholpen → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+        <div class="iter-blok overdracht">
+          <span class="iter-label">Iteratie 5 — Echte overdracht (week 15 juni)</span>
+          <strong>Vóór:</strong> definitief bewijsstuk "Overdracht week 15 juni" indien relevant, nieuwe versie met link naar definitieve repo-documentatie.<br>
+          <strong>Na:</strong> bewijsfeedback — beschrijf wat het ontvangende team gebruikte, welke vragen je niet kon beantwoorden, welke indicatoren je aantoont → validatieverzoek → leeruitkomsten koppelen.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WAT HEB JE AL -->
+<section id="wat-heb-je-al" style="background: var(--paper-warm);">
+  <div class="wrap">
+    <span class="eyebrow">De eindpresentatie is grotendeels een hervertelling</span>
+    <h2>Wat heb je al?</h2>
+    <p>Je hebt sinds week 1 portfolio-items gemaakt die de bouwstenen zijn van wat je op 15 juni laat zien.</p>
+
+    <table class="heb-je-al">
+      <thead>
+        <tr>
+          <th style="width: 18%">Stroming</th>
+          <th>Wat je waarschijnlijk al hebt</th>
+          <th>Hoe het terugkomt</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Quality Management</td>
+          <td>CI/CD-strategie, CI/CD-implementatie in GitHub Actions, deployment op Azure, coverage-tool met thresholds, unit tests domein, unit tests service, integratietests, end-to-end tests met Playwright/Cucumber, automatische clean code check.</td>
+          <td>In de eindpresentatie als verhaal over risico en betrouwbaarheid. In de overdracht als documentatie van waar de tests staan, welke thresholds gelden, welke fixtures er zijn en wat fragiel is.</td>
+        </tr>
+        <tr>
+          <td>Architecture</td>
+          <td>Quality Attribute Scenario's, lagen-hoofdstuk in het architectuurdocument, design-pattern-documentatie, 4+N viewmodel, statische architectuuranalyse.</td>
+          <td>In de eindpresentatie als verhaal over uitbreidbaarheid en keuzes. In de overdracht als compleet 4+N viewmodel met codeverwijzingen, plus plekken waar architectural erosion is opgetreden.</td>
+        </tr>
+        <tr>
+          <td>Advanced Coding</td>
+          <td>Clean code-checklist, automatische clean code check, SOLID-review, declaratieve code-PR, sorteeralgoritme-implementatie, datastructuren-review, generics-PR, overdracht van de rol van advanced coder.</td>
+          <td>In de eindpresentatie als verhaal over kosten en gebruikerservaring. In de overdracht als technical-debt-inventaris met locatie, aard, impact en aanpak per item.</td>
+        </tr>
+        <tr>
+          <td>Scrum &amp; samenwerking</td>
+          <td>Teamcontract, refinement, planning, standup, retro, review.</td>
+          <td>In de eindpresentatie zelden expliciet, wel als achtergrond bij iteratieve groei. In de overdracht als verhaal over werkwijze: hoe het ontvangende team de backlog en PR-discipline aantreft.</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- KWALITEITSCRITERIA -->
+<section id="criteria">
+  <div class="wrap">
+    <span class="eyebrow">Beoordelingskader</span>
+    <h2>Kwaliteitscriteria.</h2>
+    <p>Lees de criteria bij elke iteratie opnieuw door — wat in iteratie 1 nog acceptabel is, mag in iteratie 4 niet meer onbenoemd blijven.</p>
+
+    <div class="criteria-duo">
+      <div class="criteria-kaart eind">
+        <div class="ck-kop">Eindpresentatie</div>
+        <table>
+          <tr><td>Eerlijkheid</td><td>Technical debt, risico's en niet-afgeronde features worden expliciet benoemd en toegelicht, niet verdoezeld.</td></tr>
+          <tr><td>Werkende live demo</td><td>Live, werkend en relevant voor de belangen van de opdrachtgever — niet wat jullie toevallig technisch gaaf vinden.</td></tr>
+          <tr><td>Taal van de opdrachtgever</td><td>Technische onderbouwing is vertaald naar risico, kosten, uitbreidbaarheid en onderhoudbaarheid.</td></tr>
+          <tr><td>Alle drie de stromingen</td><td>QM, Architecture en Advanced Coding komen alle drie herkenbaar aan bod, met voldoende diepgang.</td></tr>
+          <tr><td>Inhoudelijke diepgang</td><td>Liever één of twee onderwerpen grondig dan alles oppervlakkig. Diepte is zichtbaar aan beargumenteerde keuzes en alternatieven.</td></tr>
+          <tr><td>Iteratieve groei</td><td>Herkenbaar hoe het verhaal is veranderd door 18 mei, 1 juni en het oefenmoment.</td></tr>
+          <tr><td>Team op het podium</td><td>Hele team draagt de presentatie — rolverdeling, overgangen en omgang met vragen zijn afgestemd.</td></tr>
+          <tr><td>Omgang met vragen</td><td>Inhoudelijk ingaan op wat opdrachtgever en docenten opbrengen. Niet uitwijken, niet automatisch verdedigen.</td></tr>
+        </table>
+      </div>
+      <div class="criteria-kaart overdracht">
+        <div class="ck-kop">Overdracht</div>
+        <table>
+          <tr><td>Eerlijkheid</td><td>Technical debt en fragiele plekken worden expliciet benoemd, gelokaliseerd en toegelicht. Rooskleurig voorstellen voldoet niet.</td></tr>
+          <tr><td>Bruikbaarheid</td><td>Een nieuwe developer kan op basis van jullie documentatie starten met een feature of refactor.</td></tr>
+          <tr><td>Codereferenties</td><td>Elk pattern, elke debt-plek verwijst naar een concreet bestand, klasse, PR of issue. Abstracte termen zonder locatie tellen niet.</td></tr>
+          <tr><td>Documentatie in de repo</td><td>Bij de code, niet ernaast. Actueel op het moment van de oefenmomenten.</td></tr>
+          <tr><td>Alle drie de stromingen</td><td>QM, Architecture en Advanced Coding komen alle drie met voldoende diepgang aan bod.</td></tr>
+          <tr><td>Technical-debt-inventaris</td><td>Expliciete lijst met locatie, aard, impact en voorgestelde aanpak per item.</td></tr>
+          <tr><td>Omgang met vragen</td><td>Inhoudelijk ingaan op wat het ontvangende team opbrengt. Durven zeggen dat iets niet opgelost is.</td></tr>
+          <tr><td>Iteratieve groei</td><td>Oefenmomenten van 18 mei, 1 juni, generale repetitie en echte overdracht zijn zichtbaar benut. Feedback is verwerkt.</td></tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <p>Hogeschool Utrecht · Software Development · Semester 4 · Eindfase</p>
+</footer>
+
+<script>
+  function toonStroming(id, btn) {
+    document.querySelectorAll('.stroming-panel').forEach(p => p.classList.remove('active'));
+    document.querySelectorAll('.stroming-tab').forEach(t => t.classList.remove('active'));
+    document.getElementById('panel-' + id).classList.add('active');
+    btn.classList.add('active');
+  }
+
+  function toggleAcc(header) {
+    const item = header.parentElement;
+    item.classList.toggle('open');
+  }
+</script>
+
+</body>
+</html>
